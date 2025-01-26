@@ -1,0 +1,141 @@
+:root { 
+  --theme-primary: #62b6cb;
+  --theme-background: #1a1a2e;
+  --theme-foreground: #f8f1f1;
+  --theme-highlight: #bb3e03;
+  --theme-muted: #a8dadc;
+  --text-secondary: #f8f8f8;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  text-align: center;
+  background-color: var(--theme-background);
+  color: var(--text-secondary);
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  display: inline-block;
+}
+
+.main-txt {
+  margin: 0;
+  font-size: 60px;
+  font-weight: 800;
+  padding: 20px;
+  text-transform: uppercase;
+  color: var(--theme-foreground);
+  display: inline-block;
+  position: relative;
+}
+
+.text {
+  max-width: 600px;
+  width: 100%;
+  line-height: 1.5;
+  text-align: left;
+  color: var(--theme-muted);
+  padding: 20px;
+  text-align: center;
+}
+
+.text.txt-center {
+  text-align: center;
+}
+
+.text a {
+  color: var(--theme-highlight);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.text a:hover {
+  color: var(--theme-foreground);
+}
+
+.has-animation {
+  position: relative;
+}
+
+.has-animation p, .has-animation img {
+  opacity: 0;
+}
+
+.has-animation.animate-in p, .has-animation.animate-in img {
+  animation: textHidden 0.3s 1.1s forwards;
+}
+
+.has-animation.animate-in:before, .has-animation.animate-in:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 10;
+}
+
+.has-animation.animate-in:before {
+  background-color: var(--theme-primary);
+}
+
+.has-animation.animate-in:after {
+  background-color: var(--theme-muted);
+  animation-delay: 0.5s;
+}
+
+.has-animation.animation-ltr.animate-in:before {
+  animation: revealLTR 1.8s ease;
+}
+
+.has-animation.animation-ltr.animate-in:after {
+  animation: revealLTR 1s 0.6s ease;
+}
+
+.has-animation.animation-rtl.animate-in:before {
+  animation: revealRTL 1.8s ease;
+}
+
+.has-animation.animation-rtl.animate-in:after {
+  animation: revealRTL 1s 0.6s ease;
+}
+
+@keyframes revealRTL {
+  0% {
+    width: 0;
+    right: 0;
+  }
+  65% {
+    width: 100%;
+    right: 0;
+  }
+  100% {
+    width: 0;
+    right: 100%;
+  }
+}
+
+@keyframes revealLTR {
+  0% {
+    width: 0;
+    left: 0;
+  }
+  65% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0;
+    left: 100%;
+  }
+}
+
+@keyframes textHidden {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
